@@ -37,7 +37,14 @@ router.get('/', function(req, res) {
 
 router.route('/webhook')
     .get(function(req,res){
-        res.json({ message: 'waiting...' });
+        if (req.query['hub.mode'] === 'subscribe' &&
+        req.query['hub.verify_token'] === VALIDATION_TOKEN) {
+            console.log("Validating webhook");
+            res.status(200).send(req.query['hub.challenge']);
+        } else {
+            console.error("Failed validation. Make sure the validation tokens match.");
+            res.sendStatus(403);          
+        }  
     })
     .post(function(req,res){
         res.json({ message: 'ok...' });
