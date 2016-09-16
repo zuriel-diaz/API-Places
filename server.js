@@ -130,7 +130,7 @@ function callSendAPI(messageData) {
         }
     });  
     */
-    console.log('message data:' + messageData);
+    console.log('message data:' + JSON.stringify(messageData));
 }
 
 /*
