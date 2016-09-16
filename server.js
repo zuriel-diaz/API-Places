@@ -110,6 +110,7 @@ function receivedDeliveryConfirmation(event) {
 }
 
 function callSendAPI(messageData) {
+    /*
     request({
         uri: 'https://graph.facebook.com/v2.6/me/messages',
         qs: { access_token: PAGE_ACCESS_TOKEN },
@@ -128,6 +129,8 @@ function callSendAPI(messageData) {
             console.error(error);
         }
     });  
+    */
+    console.log(messageData);
 }
 
 /*
