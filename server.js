@@ -7,6 +7,7 @@ var express     = require('express');
 var bodyParser  = require('body-parser');
 var morgan      = require('morgan');
 var http        = require('http');
+var request     = require('request');
 var app         = express();
 
 // FB variables
