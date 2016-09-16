@@ -30,12 +30,21 @@ router.use(function(req, res, next) {
     next();
 });
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+// Routes
 router.get('/', function(req, res) {
     res.json({ message: 'API v0.5!' });   
 });
 
-app.use('/api',router);
+router.route('/webhook')
+    .get(function(req,res){
+        res.json({ message: 'waiting...' });
+    })
+    .post(function(req,res){
+        res.json({ message: 'ok...' });
+    });
+
+// Register our routes
+app.use('/',router);
 
 /**
  * Create HTTP server.
