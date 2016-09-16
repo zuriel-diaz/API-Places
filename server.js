@@ -9,6 +9,9 @@ var morgan      = require('morgan');
 var http        = require('http');
 var app         = express();
 
+// FB variables
+var VALIDATION_TOKEN = "EAAETMkfFTpEBAFZA7BCZBCP9BenhJvBlFSt0dWptKoP23dvTDqZCtxZBzcTteVIC83Ajjx7Ng1ZCDD31LH9SfMJvPGGysNDcdsw1zjtFCBowm1pHVOeBPrVoJsAlroetRXD9rODZCs8TWge7ZAgdJz3kbvnSZA6XBxa5JgzQCUGcqwZDZD";
+
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
