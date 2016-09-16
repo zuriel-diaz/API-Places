@@ -12,7 +12,7 @@ var app         = express();
 
 // FB variables
 var VALIDATION_TOKEN    = "EAAETMkfFTpEBAFZA7BCZBCP9BenhJvBlFSt0dWptKoP23dvTDqZCtxZBzcTteVIC83Ajjx7Ng1ZCDD31LH9SfMJvPGGysNDcdsw1zjtFCBowm1pHVOeBPrVoJsAlroetRXD9rODZCs8TWge7ZAgdJz3kbvnSZA6XBxa5JgzQCUGcqwZDZD";
-var PAGE_ACCESS_TOKEN   = "EAAETMkfFTpEBALcVcwCEZCHZBFoQrwsv3jPZAPMYuoWtRTUGwLF1oejgnmZBDzTUV7cEv5enLaSEkguhpSASlH1J6BqCTIkoGkRbW0qkv52uIopbymhEaTkFkbqUzbhxYwuLZCyZAc3ZB6kUZBACEyQs7vZB0PjQsbyfxZA5PeesZAOVQZDZD";
+var PAGE_ACCESS_TOKEN   = "EAAETMkfFTpEBAOjpC5ZCvpZCp9LmGT2MUWBpNwUwrIgWZBPY07brCbzSjXKGeVK8eUVDp4hUd4SJuQRrFJMLIWpCaEWh38bk2ZCuhKTZAK2roY7EUYokbSJdTAcmwykkyZAn1DWCbRMpstzDSVxIAiIK1R7EnazvSHy3DfZA8Xh0wZDZD";
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
