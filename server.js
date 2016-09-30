@@ -195,7 +195,7 @@ router.route('/webhook')
 */
 router.route('/api/places/:type')
     .get(function(req,res){
-        console.log('URI->/api/places/|param:'+req.params.type);
+        console.log('URI->/api/places/ | param:'+req.params.type);
         res.json({ message: '/api/places/:type' }); 
     });
 
