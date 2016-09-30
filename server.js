@@ -204,6 +204,8 @@ router.route('/api/places/:type')
         
         var data = null;
 
+        console.log('test::req.param.type->'+req.params.type.toLowerCase());
+
         switch( req.params.type.toLowerCase() ){
             case 'restaurantes':
                 data = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
@@ -215,6 +217,7 @@ router.route('/api/places/:type')
 
         // check if data is not empty
         if(data){console.log('is not empty :-D');}
+        else{console.log('is empty :-(');}
 
         for (var i = 0; i < data.length; i++){
             console.log("name->"+data[i]["name"]);
