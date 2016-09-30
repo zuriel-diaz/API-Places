@@ -206,6 +206,7 @@ router.route('/api/places/:type')
         
         var obj = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
         console.log(obj);
+        console.log('length->'+obj.length);
         /*
         path.exists(RESTAURANTS_PATH, function(exists){
             if(exists){
