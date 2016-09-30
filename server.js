@@ -147,6 +147,7 @@ router.get('/', function(req, res) {
     res.json({ message: 'API v0.5!' });   
 });
 
+/*
 router.route('/webhook')
     .get(function(req,res){
         if (req.query['hub.mode'] === 'subscribe' &&
@@ -191,7 +192,7 @@ router.route('/webhook')
         res.sendStatus(200);
         }
     });
-
+*/
 router.route('/api/places/:type')
     .get(function(req,res){
         console.log('URI->/api/places/|param:'+req.params.type);
