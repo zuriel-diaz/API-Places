@@ -202,6 +202,17 @@ router.route('/api/places/:type')
     .get(function(req,res){
         //console.log('URI->/api/places/ | param:'+req.params.type);
         
+        var data = null;
+
+        switch( req.params.type.toLowerCase() ){
+            case 'restaurantes':
+                console.log('type->'+restaurantes);
+            break;
+            case 'tiendas':
+                console.log('type->'+tiendas);
+            break;
+        }
+
         var restaurants = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
 
         for (var i = 0; i < restaurants.length; i++){
