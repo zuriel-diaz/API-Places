@@ -221,6 +221,12 @@ router.route('/api/places/:type')
         res.json({ message: '/api/places/:type' });
     })
     .post(function(req,res){
+
+        var lat  = req.body.latitude;
+        var lang = req.body.longitude;
+
+        console.log('lat->'+lat+' , lang->'+lang);
+
         res.json({ message: 'NEVER GIVE UP!' });
     });
 
