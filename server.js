@@ -247,8 +247,13 @@ router.route('/api/places/:type')
         }
 
         console.log('the nearest place is...'+data[closest]["name"]);
+        var place = { 
+            "name": data[closest]["name"],  
+            "lat" : data[closest]["latitude"],
+            "lang": data[closest]["longitude"]
+        };
 
-        res.json({ message: 'NEVER GIVE UP!' });
+        res.json(place);
     });
 
 // Register our routes
