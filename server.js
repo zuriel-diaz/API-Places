@@ -136,6 +136,21 @@ function callSendAPI(messageData) {
     console.log('message data:' + JSON.stringify(messageData));
 }
 
+// Convert Degress to Radians
+function Deg2Rad(deg) { return deg * Math.PI / 180; }
+
+function PythagorasEquirectangular(lat1, lang1, lat2, lang2) {
+  lat1 = Deg2Rad(lat1);
+  lat2 = Deg2Rad(lat2);
+  lang1 = Deg2Rad(lang1);
+  lang2 = Deg2Rad(lang2);
+  var R = 6371; // km
+  var x = (lang2 - lang1) * Math.cos((lat1 + lat2) / 2);
+  var y = (lat2 - lat1);
+  var d = Math.sqrt(x * x + y * y) * R;
+  return d;
+}
+
 /*
  * Routing
  */
@@ -201,7 +216,14 @@ router.route('/webhook')
 router.route('/api/places/:type')
     .get(function(req,res){
         //console.log('URI->/api/places/ | param:'+req.params.type);
-        
+
+        res.json({ message: '/api/places/:type' });
+    })
+    .post(function(req,res){
+
+        var lat  = req.body.latitude;
+        var lang = req.body.longitude;
+
         var data = null;
 
         switch( req.params.type.toLowerCase() ){
@@ -213,19 +235,18 @@ router.route('/api/places/:type')
             break;
         }
 
-        // reading data...
-        for (var i = 0; i < data.length; i++){
-            console.log("name->"+data[i]["name"]);
+        var mindif = 99999;
+        var closest;
+
+        for (index = 0; index < data.length; ++index) {
+            var dif = PythagorasEquirectangular(lat, lang, data[index]["latitude"], data[index]["longitude"]);
+            if (dif < mindif) {
+                closest = index;
+                mindif = dif;
+            }    
         }
 
-        res.json({ message: '/api/places/:type' });
-    })
-    .post(function(req,res){
-
-        var lat  = req.body.latitude;
-        var lang = req.body.longitude;
-
-        console.log('lat->'+lat+' , lang->'+lang);
+        console.log('the nearest place is...'+data[closest]["name"]);
 
         res.json({ message: 'NEVER GIVE UP!' });
     });
