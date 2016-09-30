@@ -16,7 +16,7 @@ var app         = express();
 var VALIDATION_TOKEN    = "EAAETMkfFTpEBAFZA7BCZBCP9BenhJvBlFSt0dWptKoP23dvTDqZCtxZBzcTteVIC83Ajjx7Ng1ZCDD31LH9SfMJvPGGysNDcdsw1zjtFCBowm1pHVOeBPrVoJsAlroetRXD9rODZCs8TWge7ZAgdJz3kbvnSZA6XBxa5JgzQCUGcqwZDZD";
 var PAGE_ACCESS_TOKEN   = "EAAETMkfFTpEBAOjpC5ZCvpZCp9LmGT2MUWBpNwUwrIgWZBPY07brCbzSjXKGeVK8eUVDp4hUd4SJuQRrFJMLIWpCaEWh38bk2ZCuhKTZAK2roY7EUYokbSJdTAcmwykkyZAn1DWCbRMpstzDSVxIAiIK1R7EnazvSHy3DfZA8Xh0wZDZD";
 
-var STORE_PATH          = './locations/places/tiendas.json';
+var SHOPS_PATH          = './locations/places/tiendas.json';
 var RESTAURANTS_PATH    = './locations/places/restaurantes.json';
 
 app.use(morgan('dev'));
@@ -206,29 +206,17 @@ router.route('/api/places/:type')
 
         switch( req.params.type.toLowerCase() ){
             case 'restaurantes':
-                console.log('type->restaurantes');
+                data = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
             break;
             case 'tiendas':
-                console.log('type->tiendas');
+                data = JSON.parse(fs.readFileSync(SHOPS_PATH,'utf-8'));
             break;
         }
 
-        var restaurants = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
-
-        for (var i = 0; i < restaurants.length; i++){
-            console.log("name->"+restaurants[i]["name"]);
+        for (var i = 0; i < data.length; i++){
+            console.log("name->"+data[i]["name"]);
         }
 
-        /*
-        path.exists(RESTAURANTS_PATH, function(exists){
-            if(exists){
-
-            }else{
-
-            }
-        });
-        */
-        console.log('dirname->'+__dirname);
         res.json({ message: '/api/places/:type' });
     });
 
