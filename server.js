@@ -16,8 +16,8 @@ var app         = express();
 var VALIDATION_TOKEN    = "EAAETMkfFTpEBAFZA7BCZBCP9BenhJvBlFSt0dWptKoP23dvTDqZCtxZBzcTteVIC83Ajjx7Ng1ZCDD31LH9SfMJvPGGysNDcdsw1zjtFCBowm1pHVOeBPrVoJsAlroetRXD9rODZCs8TWge7ZAgdJz3kbvnSZA6XBxa5JgzQCUGcqwZDZD";
 var PAGE_ACCESS_TOKEN   = "EAAETMkfFTpEBAOjpC5ZCvpZCp9LmGT2MUWBpNwUwrIgWZBPY07brCbzSjXKGeVK8eUVDp4hUd4SJuQRrFJMLIWpCaEWh38bk2ZCuhKTZAK2roY7EUYokbSJdTAcmwykkyZAn1DWCbRMpstzDSVxIAiIK1R7EnazvSHy3DfZA8Xh0wZDZD";
 
-var STORE_PATH          = '/locations/places/tiendas.json';
-var RESTAURANTS_PATH    = '/locations/places/restaurantes.json';
+var STORE_PATH          = './locations/places/tiendas.json';
+var RESTAURANTS_PATH    = './locations/places/restaurantes.json';
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -203,10 +203,9 @@ router.route('/api/places/:type')
         //console.log('URI->/api/places/ | param:'+req.params.type);
         //res.json({ message: '/api/places/:type' }); 
 
-        /*
+        
         var obj = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
         console.log(obj);
-        */
         /*
         path.exists(RESTAURANTS_PATH, function(exists){
             if(exists){
