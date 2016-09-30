@@ -201,8 +201,15 @@ router.route('/api/places/:type')
     .get(function(req,res){
         //console.log('URI->/api/places/ | param:'+req.params.type);
         //res.json({ message: '/api/places/:type' }); 
+        if(fs.existsSync(RESTAURANTS_PATH)){
+            console.log('exists...');
+        }else{
+            console.log('we cannot find this file...');
+        }
+        /*
         var obj = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
         console.log(obj);
+        */
         res.json({ message: '/api/places/:type' });
     });
 
