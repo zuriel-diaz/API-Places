@@ -192,6 +192,13 @@ router.route('/webhook')
         }
     });
 
+router.route('/api/places/:type')
+    .get(function(req,res){
+        console.log('URI->/api/places/:type'+req.params.type);
+        res.sendStatus(200);
+        res.json({ message: '/api/places/:type' }); 
+    });
+
 // Register our routes
 app.use('/',router);
 
