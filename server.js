@@ -201,12 +201,13 @@ router.route('/webhook')
 router.route('/api/places/:type')
     .get(function(req,res){
         //console.log('URI->/api/places/ | param:'+req.params.type);
-        //res.json({ message: '/api/places/:type' }); 
-
         
-        var obj = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
-        console.log(obj);
-        console.log('length->'+obj.length);
+        var restaurants = JSON.parse(fs.readFileSync(RESTAURANTS_PATH,'utf-8'));
+
+        for (var i = 0; i < restaurants.length; i++){
+            console.log("name->"+restaurants[i]["name"]);
+        }
+
         /*
         path.exists(RESTAURANTS_PATH, function(exists){
             if(exists){
