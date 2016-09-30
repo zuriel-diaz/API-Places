@@ -213,6 +213,9 @@ router.route('/api/places/:type')
             break;
         }
 
+        // check if data is not empty
+        if(data){console.log('is not empty :-D');}
+
         for (var i = 0; i < data.length; i++){
             console.log("name->"+data[i]["name"]);
         }
