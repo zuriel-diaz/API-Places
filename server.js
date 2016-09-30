@@ -206,10 +206,10 @@ router.route('/api/places/:type')
 
         switch( req.params.type.toLowerCase() ){
             case 'restaurantes':
-                console.log('type->'+restaurantes);
+                console.log('type->restaurantes');
             break;
             case 'tiendas':
-                console.log('type->'+tiendas);
+                console.log('type->tiendas');
             break;
         }
 
