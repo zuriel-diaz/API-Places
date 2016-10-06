@@ -1,5 +1,5 @@
 [
-{"name":"Azul Histórico","latitude":19.433122,"longitude":-99.136163,"img":"http://mxcity.mx/wp-content/uploads/2014/07/azul-historico.jpg"},
-{"name":"La Casa de Madero","latitude":19.434508,"longitude":-99.139929,"img":"http://www.reikal.com.mx/imagenes/company_photo/772_big.jpg"},
-{"name":"La Teraza Restaurant","latitude":19.433284,"longitude":-99.134361,"img":"https://s-media-cache-ak0.pinimg.com/originals/3b/59/0c/3b590c58eab5c45047d0723f508bfb1c.jpg"}
+{"name":"Azul Histórico","latitude":19.433122,"longitude":-99.136163,"description":"Azul Histórico...","img":"http://mxcity.mx/wp-content/uploads/2014/07/azul-historico.jpg"},
+{"name":"La Casa de Madero","latitude":19.434508,"longitude":-99.139929,"description":"La Casa de Madero...","img":"http://www.reikal.com.mx/imagenes/company_photo/772_big.jpg"},
+{"name":"La Teraza Restaurant","latitude":19.433284,"longitude":-99.134361,"description":"La Teraza Restaurant...","img":"https://s-media-cache-ak0.pinimg.com/originals/3b/59/0c/3b590c58eab5c45047d0723f508bfb1c.jpg"}
 ]
