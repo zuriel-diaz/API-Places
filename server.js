@@ -250,7 +250,9 @@ router.route('/api/places/:type')
         var place = { 
             "name": data[closest]["name"],  
             "lat" : data[closest]["latitude"],
-            "lang": data[closest]["longitude"]
+            "lang": data[closest]["longitude"],
+            "description": data[closest]["description"],
+            "img": data[closest]["img"]
         };
 
         res.json(place);
