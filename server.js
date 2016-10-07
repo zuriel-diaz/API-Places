@@ -265,7 +265,6 @@ app.use('/',router);
 
 // get data about beers
 router.get('/api/beers', function(req,res){
-
     var data = JSON.parse(fs.readFileSync(BEERS_DATA_PATH,'utf-8'));
     res.json(data);
 });
