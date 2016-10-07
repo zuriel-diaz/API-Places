@@ -18,6 +18,8 @@ var PAGE_ACCESS_TOKEN   = "EAAETMkfFTpEBAOjpC5ZCvpZCp9LmGT2MUWBpNwUwrIgWZBPY07br
 
 var SHOPS_PATH          = './data/locations/places/tiendas.json';
 var RESTAURANTS_PATH    = './data/locations/places/restaurantes.json';
+var BEERS_DATA_PATH    = './data/beers.json';
+
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -264,9 +266,8 @@ app.use('/',router);
 // get data about beers
 router.get('/api/beers', function(req,res){
 
-
-
-    res.json({'URI':'/api/beers'});
+    var data = JSON.parse(fs.readFileSync(BEERS_DATA_PATH,'utf-8'));
+    res.json(data);
 });
 
 
