@@ -261,6 +261,12 @@ router.route('/api/places/:type')
 // Register our routes
 app.use('/',router);
 
+// get data about beers
+router.get('/api/beers', function(req,res){
+    res.json({'URI':'/api/beers'});
+});
+
+
 /**
  * Create HTTP server.
  */
