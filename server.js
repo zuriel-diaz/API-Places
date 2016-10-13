@@ -18,8 +18,8 @@ var PAGE_ACCESS_TOKEN   = "EAAETMkfFTpEBAOjpC5ZCvpZCp9LmGT2MUWBpNwUwrIgWZBPY07br
 
 var SHOPS_PATH          = './data/locations/places/tiendas.json';
 var RESTAURANTS_PATH    = './data/locations/places/restaurantes.json';
-var BEERS_DATA_PATH    = './data/beers.json';
-
+var BEERS_DATA_PATH     = './data/beers.json';
+var FOODS_PATH          = './data/maridaje.json';
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -270,8 +270,40 @@ router.get('/api/beers', function(req,res){
 });
 
 // get foods or beer based on customer preferences
-router.get('/api/maridaje/:input', function(req,res){
-    res.json({'input':req.params.input});
+router.get('/api/maridaje/:food_kind/:food_description', function(req,res){
+    
+    var data        = JSON.parse(fs.readFileSync(FOODS_PATH,'utf-8'));
+    var result      = [];
+    var re1         = new RegExp(req.params.food_description);
+
+    if(data){
+        for(var position = 0; position < data.length; position++){
+        switch(req.params.food_kind){
+            case 'beer':
+                var temp = {};
+                //if(data[position].beer_name===sample_text){result=data[position].beer_name;}
+                if(re1.test(data[position].beer_name_cleaned)){
+                    temp.beer_name = data[position].beer_name;
+                    temp.position = position;
+                    result.push(temp);
+                }
+            break;
+            case 'food':
+                var foods = data[position].foods;
+                for(var pos = 0; pos < foods.length; pos++){
+                    if(re1.test(foods[pos].name_cleaned)){
+                        var temp = {};
+                        temp.food_name = foods[pos].name;
+                        temp.food_position = pos;
+                        result.push(temp);
+                    }
+                }
+            break;
+        }
+    }
+    }
+
+    res.json(result);
 });
 
 /**
