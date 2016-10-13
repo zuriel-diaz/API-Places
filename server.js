@@ -302,7 +302,7 @@ router.get('/api/maridaje/:food_kind/:food_description', function(req,res){
         }
     }
     }
-
+    console.log(JSON.stringify(result));
     res.json(result);
 });
 
