@@ -269,6 +269,10 @@ router.get('/api/beers', function(req,res){
     res.json(data);
 });
 
+// get foods or beer based on customer preferences
+router.get('/api/maridaje/:input', function(req,res){
+    res.json({'input':req.params.input});
+});
 
 /**
  * Create HTTP server.
