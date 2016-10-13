@@ -290,15 +290,22 @@ router.get('/api/maridaje/:food_kind/:food_description', function(req,res){
             break;
             case 'food':
                 var foods = data[position].foods;
+                var found_food = false;
+
+
                 for(var pos = 0; pos < foods.length; pos++){
                     if(re1.test(foods[pos].name_cleaned)){
                         var temp = {};
-                        //temp.food_name = foods[pos].name;
-                        //temp.food_position = pos;
                         temp.beer_name = data[position].beer_name;
                         temp.beer_img_url = data[position].beer_img_url;
                         result.push(temp);
+
+                        // turn on
+                        found_food = true;
                     }
+
+                    // determine if we need to jump out of a loop
+
                 }
             break;
         }
